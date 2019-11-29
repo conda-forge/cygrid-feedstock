@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 3
   skip: True  # [py27]
   script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline"
 
@@ -26,14 +26,14 @@ requirements:
     - python
     - pip
     - setuptools
-    - astropy >=2.1
+    - astropy
     - cython
     - numpy
 
   run:
     - python
     - llvm-openmp  # [osx]
-    - astropy >=2.1
+    - astropy
     - {{ pin_compatible('numpy') }}
 
 test:
