@@ -34,6 +34,8 @@ requirements:
     - python
     - llvm-openmp  # [osx]
     - astropy
+    - pytest
+    - pytest-astropy
     - {{ pin_compatible('numpy') }}
 
 test:
