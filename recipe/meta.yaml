@@ -1,6 +1,6 @@
 {% set name = "cygrid" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "4d8acd279cf37470b34b4e4db1a0d7d60262d91082a65c002a3de8166bf08c4a" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "3a33ab3bb2c216884cd91e17f9f9c9a89d27717aceb4dd32ed4676c939cb923c" %}
 
 package:
   name: {{ name|lower }}
