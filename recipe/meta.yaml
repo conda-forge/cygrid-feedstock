@@ -1,6 +1,6 @@
 {% set name = "cygrid" %}
-{% set version = "2.0.1" %}
-{% set sha256 = "3a33ab3bb2c216884cd91e17f9f9c9a89d27717aceb4dd32ed4676c939cb923c" %}
+{% set version = "2.0.2" %}
+{% set sha256 = "a6cca2721bd17ee45de9a4c5961cff80de55bef728613d24676a7b5963edf25d" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py27]
   script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
 
