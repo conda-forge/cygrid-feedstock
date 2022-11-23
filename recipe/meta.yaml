@@ -1,6 +1,6 @@
 {% set name = "cygrid" %}
-{% set version = "2.0.2" %}
-{% set sha256 = "a6cca2721bd17ee45de9a4c5961cff80de55bef728613d24676a7b5963edf25d" %}
+{% set version = "2.0.3" %}
+{% set sha256 = "f059b259a58328f6165590bf244fcdbf6abb85fa7ebfebc6156672979ff2b0e8" %}
 
 package:
   name: {{ name|lower }}
@@ -12,30 +12,34 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  skip: true  # [py27]
-  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
+  number: 0
+  skip: true  # [py<=37]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - llvm-openmp  # [osx]
 
   host:
+    - compilers  # [osx]
     - llvm-openmp  # [osx]
     - python
     - pip
     - setuptools
+    - setuptools_scm
+    - extension-helpers
     - astropy
     - cython
     - numpy
 
   run:
     - python
+    - compilers  # [osx]
     - llvm-openmp  # [osx]
     - astropy
     - pytest
     - pytest-astropy
+    - pytest-doctestplus
     - {{ pin_compatible('numpy') }}
 
 test:
