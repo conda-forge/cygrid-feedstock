@@ -13,29 +13,33 @@ source:
 
 build:
   number: 0
-  skip: true  # [py27]
-  script: {{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline
+  skip: true  # [py<=37]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - llvm-openmp  # [osx]
 
   host:
+    - compilers  # [osx]
     - llvm-openmp  # [osx]
     - python
     - pip
     - setuptools
+    - setuptools_scm
+    - extension-helpers
     - astropy
     - cython
     - numpy
 
   run:
     - python
+    - compilers  # [osx]
     - llvm-openmp  # [osx]
     - astropy
     - pytest
     - pytest-astropy
+    - pytest-doctestplus
     - {{ pin_compatible('numpy') }}
 
 test:
