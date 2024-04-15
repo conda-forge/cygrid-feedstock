@@ -1,6 +1,6 @@
 {% set name = "cygrid" %}
-{% set version = "2.0.3" %}
-{% set sha256 = "f059b259a58328f6165590bf244fcdbf6abb85fa7ebfebc6156672979ff2b0e8" %}
+{% set version = "2.0.4" %}
+{% set sha256 = "ebc49f8ff3cd2c0363783e261825a3e6b948374703be56289f0937e11af4456a" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<=37]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
