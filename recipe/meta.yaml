@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<=37]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -28,7 +28,7 @@ requirements:
     - setuptools
     - setuptools_scm
     - extension-helpers
-    - astropy
+    - astropy-base
     - cython
     - numpy
 
@@ -36,7 +36,7 @@ requirements:
     - python
     - compilers  # [osx]
     - llvm-openmp  # [osx]
-    - astropy
+    - astropy-base
     - pytest
     - pytest-astropy
     - pytest-doctestplus
